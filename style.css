@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: white;
+  color: #1C4E80;
+  scroll-behavior: smooth;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  background: white;
+  border-bottom: 5px solid #1C4E80;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #1C4E80;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  font-size: 4rem;
+  margin: 0.5em 0;
+  color: #FF6F00;
+  text-transform: uppercase;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1.5em;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #1C4E80;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #15406A;
+}
+
+#intro {
+  background: #f7f7f7;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #FF6F00;
+}
+
+#intro p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+#achievements {
+  background: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#achievements h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #1C4E80;
+}
+
+.timeline {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 20px;
+  border-left: 4px solid #FF6F00;
+}
+
+.timeline-item {
+  margin-bottom: 30px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  background-color: #1C4E80;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #FF6F00;
+}
+
+.year {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #FF6F00;
+  margin-bottom: 5px;
+}
+
+.event {
+  font-size: 1rem;
+  color: #333;
+}
+
+.timeline-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-in-out;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#sports {
+  background: #f2f7ff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#sports h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #1C4E80;
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sport-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  border-top: 5px solid #FF6F00;
+}
+
+.sport-card:hover {
+  transform: translateY(-5px);
+}
+
+.sport-card img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.sport-card h3 {
+  font-size: 1.2rem;
+  color: #1C4E80;
+  margin-bottom: 10px;
+}
+
+.sport-card p {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+#stats {
+  background: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#stats h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #1C4E80;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+}
+
+.stat-card {
+  background: #f2f7ff;
+  border-top: 5px solid #FF6F00;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+.stat-card h3 {
+  font-size: 1.1rem;
+  color: #1C4E80;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  color: #FF6F00;
+  font-weight: bold;
+}
+
+.strava-section {
+  padding: 40px 0;
+}
+
+.strava-section h3 {
+  font-size: 1.5rem;
+  color: #1C4E80;
+  margin-bottom: 20px;
+}
+
+.strava-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.strava-gallery img {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#journey {
+  background-color: #f7f7f7;
+  padding: 60px 20px;
+  text-align: center;
+  color: #1C4E80;
+}
+
+#journey h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #1C4E80;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.journey-card {
+  flex: 0 0 auto;
+  width: 250px;
+  background: white;
+  border-top: 5px solid #FF6F00;
+  border-radius: 10px;
+  padding: 15px;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.journey-card:hover {
+  transform: scale(1.05);
+}
+
+.journey-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.journey-card h3 {
+  font-size: 1.2rem;
+  color: #FF6F00;
+  margin-bottom: 5px;
+}
+
+.journey-card p {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+#kohli-tribute {
+  background: #1C4E80;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#kohli-tribute h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #FF6F00;
+}
+
+#kohli-tribute p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.big-18 {
+  font-size: 8rem;
+  font-weight: bold;
+  color: white;
+  margin: 20px 0;
+  animation: pulse18 2s infinite;
+}
+
+.caption {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #ffcc80;
+}
+
+@keyframes pulse18 {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
