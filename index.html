@@ -5,15 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Urvija</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Step 1: React + ReactDOM + Babel (for in-page JSX) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
+
 <body>
   <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
       <h1>🏆 THE UNSTOPPABLE</h1>
       <h2>Urvija</h2>
-      <p>Cricket Queen. Skating Star. Champion of Champions.</p>
-      <button onclick="scrollToIntro()">Explore Her Journey ↓</button>
+      <p>Gold medals? Just the beginning.</p>
+      <button onclick="scrollToIntro()">Explore Her Journey</button>
     </div>
   </section>
 
@@ -23,6 +29,9 @@
       Whether she’s smashing sixes, gliding on skates, or racing the wind — Urvija is rewriting the playbook of greatness.
     </p>
   </section>
+
+  <!-- React placeholder -->
+<div id="react-root"></div>
 
   <section id="achievements">
   <h2>🏅 Achievements Timeline</h2>
@@ -159,6 +168,19 @@
   <div class="big-18">18</div>
   <p class="caption">Not just a number. A mindset. A legacy. A beginning.</p>
 </section>
+<script type="text/babel">
+  function TestComponent() {
+    return (
+      <div style={{background:"#222", color:"white", padding:"15px", borderRadius:"8px", textAlign:"center"}}>
+        <h2>✅ React is Working!</h2>
+        <p>This box is powered by React.</p>
+      </div>
+    );
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById("react-root"));
+  root.render(<TestComponent />);
+</script>
 
 
   <script src="script.js"></script>
