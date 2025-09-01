@@ -21,8 +21,9 @@ body, html {
   align-items: center;
   text-align: center;
   padding: 0 20px;
-  background: rgb(245, 250, 255);
+  background: rgb(230, 242, 252);
   border-bottom: 5px solid #1C4E80;
+  position: relative;
 }
 
 .hero-content {
@@ -48,21 +49,36 @@ body, html {
 
 .hero p {
   font-size: 1.3rem;
-  color: #e9c709;
+  color: #dcbc03;
   margin-bottom: 1.5em;
   font-weight: bold;
 }
 
 button {
-  padding: 12px 24px;
+  padding: 10px 20px;
   font-size: 1rem;
   background-color: #1C4E80;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  display: inline-block;
+  transform-origin: center;
+  overflow: hidden;
   transition: background-color 0.3s ease;
+  /* Add animation */
+  animation: pop 2.5s infinite ease-in-out;
 }
+
+@keyframes pop {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
 
 button:hover {
   background-color: #e9c709;
@@ -74,7 +90,7 @@ button:hover {
 /*ACHIEVEMENT*/
 
 #achievements {
- background: rgb(206, 224, 239);
+ background: linear-gradient(to bottom, rgb(230, 242, 252), rgba(133, 171, 203, 0.837));
   padding: 90px 20px;
   text-align: center;
 }
@@ -90,7 +106,7 @@ button:hover {
   margin: 0 auto;
   position: relative;
   padding-left: 30px;
-  border-left: 4px solid #fc7005;
+  border-left: 4px solid #fa740ec0;
 }
 
 .timeline-item {
@@ -115,7 +131,7 @@ button:hover {
 .year {
   font-weight: bolder;
   font-size: 1.6rem;
-  color: #FF6F00;
+  color: #ff6f00d3;
   margin-bottom: 5px;
 }
 
@@ -126,10 +142,13 @@ button:hover {
 }
 
 .timeline-item {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-in-out;
+  margin-bottom: 30px;
+  position: relative;
+  padding-left: 60px;
+  opacity: 1 !important;   /* force visible */
+  transform: translateY(0) !important;
 }
+
 
 .timeline-item.visible {
   opacity: 1;
@@ -140,7 +159,7 @@ button:hover {
 /*SPORTS*/
 
 #sports {
-  background: rgb(146, 184, 215);
+  background: radial-gradient(circle at center, rgb(180, 210, 235), rgb(96, 131, 160));
   padding: 130px 20px;
   text-align: center;
 }
@@ -148,7 +167,7 @@ button:hover {
 #sports h2 {
   font-size: 2.9rem;
   margin-bottom: 5rem;
-  color: #1C4E80;
+  color: rgba(45, 76, 97, 0.874);
 }
 
 .sports-grid {
@@ -197,8 +216,8 @@ button:hover {
   height: 100%;
   border-radius: 15px;
   backface-visibility: hidden;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  background: #fafdff9e;
+  box-shadow: 0 6px 12px rgb(79, 114, 141);
+  background: #daeffe7c;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -229,7 +248,7 @@ button:hover {
 /* Back Side */
 .card-back {
   transform: rotateY(180deg);
-  background: #000;
+  background: rgba(49, 74, 93, 0.725);
 }
 
 .card-back img {
@@ -238,13 +257,62 @@ button:hover {
   object-fit: cover;
 }
 
+/* INFINITE PHOTOCARD */
+#photo-carousel {
+  background: radial-gradient(circle at top left, rgba(0,0,0,0.6), transparent 70%),
+              radial-gradient(circle at top right, rgba(0,0,0,0.6), transparent 70%),
+              radial-gradient(circle at bottom left, rgba(0,0,0,0.6), transparent 70%),
+              radial-gradient(circle at bottom right, rgba(0,0,0,0.6), transparent 70%),
+              #3b6691;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+
+#photo-carousel h2 {
+  font-size: 2.5rem;
+  color: #d4e6f6dd;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 95s linear infinite; /* slower for smoother scroll */
+}
+
+.carousel-track img {
+  width: 220px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-360%); } /* move half since we duplicated */
+}
+
 
 
 
 /*18 LEGACY*/
 
 #kohli-tribute {
-  background: #1C4E80;
+  background: radial-gradient(circle at top left, #123355, transparent 50%),
+              radial-gradient(circle at bottom right, #113051, transparent 50%),
+              #2d6297;
   color: white;
   padding: 80px 20px;
   text-align: center;
@@ -282,3 +350,126 @@ button:hover {
 }
 
 
+
+
+
+
+/* ----------------------------
+   MOBILE / RESPONSIVE FIXES
+   Paste this at the VERY END of style.css
+   ---------------------------- */
+
+/* prevent horizontal overflow on small screens */
+html, body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Reset any large horizontal nudges that break layout */
+.sports-grid > :nth-child(4),
+.sports-grid > :nth-child(5) {
+  grid-column: auto;
+  justify-self: center;
+  margin-left: 0;
+}
+
+/* General tablet adjustments */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 3.6rem; white-space: normal; word-break: break-word; }
+  .hero h2 { font-size: 2.6rem; }
+  .hero p  { font-size: 1.05rem; }
+
+  .sports-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 36px;
+    max-width: 760px;
+    padding: 0 16px;
+    margin: 0 auto;
+  }
+
+  .sport-card { width: 220px; height: 260px; }
+  .card-front img { width: 100px; height: 66px; }
+  .card-front h3 { font-size: 1.15rem; }
+  .card-front p  { font-size: 0.95rem; }
+
+  .carousel-track img { width: 180px; height: 250px; }
+  .carousel-track { animation-duration: 70s; } /* slower for more content */
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+  /* hero */
+  .hero { padding: 40px 12px; }
+  .hero h1 { font-size: 2.6rem; letter-spacing: 2px; }
+  .hero h2 { font-size: 1.9rem; }
+  .hero p  { font-size: 0.95rem; margin-bottom: 1rem; }
+
+  /* timeline */
+  .timeline {
+    max-width: 100%;
+    padding-left: 12px;
+    border-left: 3px solid #fa740ec0;
+  }
+  .timeline-item { padding-left: 8px; }
+
+  /* sports grid -> single column for phones */
+  .sports-grid {
+    grid-template-columns: 1fr; /* stack cards */
+    gap: 28px;
+    max-width: 420px;
+    padding: 0 12px;
+    margin: 0 auto;
+  }
+
+  /* force bottom 2 cards to normal flow */
+  .sports-grid > :nth-child(4),
+  .sports-grid > :nth-child(5) {
+    grid-column: auto !important;
+    justify-self: center !important;
+    margin-left: 0 !important;
+  }
+
+  .sport-card { width: 100%; height: auto; min-height: 240px; }
+  .card-inner { height: 100%; }
+  .card-front img { width: 120px; height: 72px; }
+
+  /* Carousel: disable automatic full-track animation on small screens and allow horizontal swipe */
+  .carousel-track {
+    animation: none !important;
+    display: flex;
+    gap: 12px;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .carousel {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+  .carousel-track img {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 210px;
+  }
+
+  /* Kohli tribute */
+  #kohli-tribute h2 { font-size: 2.2rem; }
+  .big-18 { font-size: 6.5rem; }
+  .caption { font-size: 1.1rem; }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.1rem; }
+  .hero h2 { font-size: 1.6rem; }
+  button { padding: 8px 14px; font-size: 0.9rem; }
+
+  .carousel-track img { width: 120px; height: 170px; }
+  .big-18 { font-size: 5rem; }
+  .caption { font-size: 1rem; }
+}
+
+/* Make flip work on touch (class-based) */
+.sport-card.touch-flip .card-inner {
+  transform: rotateY(180deg);
+}
